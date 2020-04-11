@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { ActionsCreator } from '../../redux/action/index'
 import { Row, Col, Container } from 'react-bootstrap'
 import InputSearch from '../../atomic/inputSearch'
 import { Icon } from '@iconify/react'
@@ -6,6 +9,12 @@ import arrowBackSharp from '@iconify/icons-ion/arrow-back-sharp'
 import { useRouter } from 'next/router'
 
 const SearchWidget = (props) => {
+  console.log(props)
+  useEffect(() => {
+    if (!props.productReducer.loaded && !props.productReducer.loading && !props.productReducer.error) {
+      props.callProduct()
+    }
+  }, [])
   const router = useRouter()
   return (
     <React.Fragment>
@@ -85,4 +94,12 @@ const SearchWidget = (props) => {
   )
 }
 
-export default SearchWidget
+const mapStateToProps = state => ({
+  productReducer: state.productReducer
+})
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(ActionsCreator, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchWidget)

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Icon } from '@iconify/react';
+import { Icon } from '@iconify/react'
 import searchOutline from '@iconify/icons-ion/search-outline';
 import closeOutline from '@iconify/icons-ion/close-outline';
 import PropTypes from 'prop-types'
