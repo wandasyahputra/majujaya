@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "NODE_ENV=production node server.js -p $PORT",
     "heroku-postbuild": "npm run build",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
@@ -15,12 +15,15 @@
     "@zeit/next-sass": "^1.0.1",
     "dotenv-webpack": "^1.7.0",
     "next": "9.3.4",
+    "next-fonts": "^1.0.3",
     "next-images": "^1.4.0",
+    "next-routes": "^1.4.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.1.3",
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "sass": "^1.26.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.18",
