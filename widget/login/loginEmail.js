@@ -83,7 +83,7 @@ const LoginEmail = (props) => {
           </Col>
           <Col xs={12}>
             <TextField
-              label="Kata Sandi"
+              label="Password"
               type="password"
               id="loginPass"
               invalid={Object.entries(error).length && error.pass ? error.pass : null}
@@ -99,9 +99,10 @@ const LoginEmail = (props) => {
           </Col>
           <Col xs={12} className="text-right d-flex justify-content-between">
             <Checkbox
-              checked={true}
+              checked={false}
               className="mt-2"
               label="Remember me"
+              id="remember"
             />
             <Button
               variant="primary"
