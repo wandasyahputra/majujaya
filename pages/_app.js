@@ -1,3 +1,4 @@
+
 import React from 'react'
 import App from 'next/app'
 import { Provider } from 'react-redux'
@@ -5,6 +6,7 @@ import { applyMiddleware, createStore, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import logger from 'redux-logger'
 import reducer from '../redux/reducer'
+import 'bootstrap/scss/bootstrap.scss'
 import '../assets/styles/styles.scss'
 
 const configureStore = (initialState) => {

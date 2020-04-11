@@ -23,11 +23,9 @@ const Layout = (props) => {
           {'MajuJaya - ' + props.pageTitle}
         </title>
       </Head>
-      <Row>
-        <Col xs={12}>
-          { props.children }
-        </Col>
-      </Row>
+      <Col xs={12}>
+        { props.children }
+      </Col>
     </React.Fragment>
   )
 }
