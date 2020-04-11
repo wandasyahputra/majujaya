@@ -1,4 +1,4 @@
-const port = parseInt(process.env.PORT, 10) || 3000
+const port = process.env.PORT || 3000
 const next = require('next')
 const routes = require('./routes')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
