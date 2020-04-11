@@ -1,0 +1,17 @@
+.card {
+  border-radius: 10px !important;
+  opacity: 1;
+  transition: 1s;
+  max-height: 100%;
+  &-borderless {
+    border: 0;
+  }
+  &-fade {
+    transition: 0.75s;
+  }
+  &-hide {
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0px;
+  }
+}
