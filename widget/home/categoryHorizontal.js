@@ -37,7 +37,7 @@ const CategoryHorizontal = (props) => {
           props.categoryReducer !== null ? (
               props.categoryReducer.map((item, key) =>
                 <div key={key} className="categoryItem withShadow m-1" >
-                  <Card className="p-1 card-borderless overflow-hidden">
+                  <Card className="p-1 card-borderless overflow-hidden f-14">
                     <img src={item.imageUrl} />
                     {item.name}
                   </Card>
