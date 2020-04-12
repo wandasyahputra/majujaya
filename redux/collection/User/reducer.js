@@ -3,7 +3,9 @@ import {
 } from '../../types'
 
 const initialState = {
-  data: {}
+  data: {
+    logedin: false
+  }
 }
 
 const setDataLogin = (state = initialState, { type, payload }) => {
