@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react'
 import heartIcon from '@iconify/icons-ion/heart'
 import CategoryHorizontal from '../../widget/home/categoryHorizontal'
 import PopularProduct from '../../widget/home/popularProduct'
+import Navigator from '../../components/navigator'
 
 const HomePage = () => (
   <Layout
@@ -28,10 +29,11 @@ const HomePage = () => (
           />
         </Col>
       </Row>
-      <Row>
+      <Row className="mb-5 pb-4">
         <CategoryHorizontal />
         <PopularProduct />
       </Row>
+      <Navigator />
     </Container>
   </Layout>
 )
