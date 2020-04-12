@@ -49,6 +49,9 @@ const LoginEmail = (props) => {
     setLoading(true)
     // just make it more dramatic
     setTimeout(() => {
+      if (login.rememberme) {
+        localStorage.setItem('logedin', true)
+      }
       const data = {
         logedin: true
       }
