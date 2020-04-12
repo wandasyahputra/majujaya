@@ -1,5 +1,6 @@
 import {
-  SET_PRODUCT
+  SET_PRODUCT,
+  TOGGLE_LOVE
 } from '../../types'
 import axios from 'axios'
 import { home } from '../../../endpoint/majujaya'
@@ -37,3 +38,8 @@ export const callProduct = () => {
     })
   }
 }
+
+export const toggleLove = id => ({
+  type: TOGGLE_LOVE,
+  payload: id
+})

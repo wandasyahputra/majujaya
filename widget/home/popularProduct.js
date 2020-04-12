@@ -32,22 +32,25 @@ const PopularProduct = (props) => {
       props.callProduct()
     }
   }, [])
+  const toggleLove = (id) => () => {
+    props.toggleLove(id)
+  }
   return (
     <React.Fragment>
       {
         props.loaded &&
         props.productReducer !== null ? (
             props.productReducer.map((item, key) =>
-              <Link key={key} route={`/product/${item.id}`}>
-                <Card className="productBigItem overflow-hidden mt-3 card-borderless withShadow" >
-                  <img src={item.imageUrl} />
-                  {item.loved ? (
-                    <Icon icon={heartIcon} width="32" className="love text-danger"/>
-                  ) : (<Icon icon={heartOutline} width="32" className="love text-primary"/>)
-                  }
-                  <h4 className="f-12 m-2 mt-4">{item.title}</h4>
-                </Card>
-              </Link>
+              <Card key={key} className="productBigItem overflow-hidden mt-3 card-borderless withShadow" >
+                <img src={item.imageUrl} />
+                {item.loved ? (
+                  <Icon icon={heartIcon} width="32" onClick={toggleLove(item.id)} className="love text-danger"/>
+                ) : (<Icon icon={heartOutline} width="32" onClick={toggleLove(item.id)} className="love text-primary"/>)
+                }
+                <Link route={`/product/${item.id}`}>
+                  <h4 className="f-14 m-2 mt-4">{item.title}</h4>
+                </Link>
+              </Card>
             )) : null
       }
     </React.Fragment>

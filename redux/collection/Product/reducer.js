@@ -1,5 +1,6 @@
 import {
-  SET_PRODUCT
+  SET_PRODUCT,
+  TOGGLE_LOVE
 } from '../../types'
 
 const initialState = {
@@ -18,6 +19,23 @@ const setDataProduct = (state = initialState, { type, payload }) => {
       return {
         ...state,
         ...payload
+      }
+    }
+    case TOGGLE_LOVE: {
+      const newProduct = []
+      for (let i = 0; i < state.data.product.length; i++) {
+        const itemProduct = state.data.product[i]
+        if (itemProduct.id === payload) {
+          itemProduct.loved = !itemProduct.loved
+        }
+        newProduct.push(itemProduct)
+      }
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          product: newProduct
+        }
       }
     }
     default: {
