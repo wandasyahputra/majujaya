@@ -47,7 +47,7 @@ const ProductDetail = (props) => {
     shareSocialRef.current.addEventListener('click', event => {
       if (navigator.share) {
         navigator.share({
-          title: 'Maju Jaya Online Store',
+          title: window.location.href,
           url: window.location.href
         }).then(() => {
           console.log('Thanks for sharing!')

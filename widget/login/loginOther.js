@@ -26,6 +26,7 @@ const LoginOther = (props) => {
       picture: response.picture.data.url,
       logedin: true
     }
+    localStorage.setItem('logedin', true)
     props.setLogin(data)
     Router.pushRoute('/')
   }
@@ -35,6 +36,7 @@ const LoginOther = (props) => {
       picture: response.profileObj.imageUrl,
       logedin: true
     }
+    localStorage.setItem('logedin', true)
     props.setLogin(data)
     Router.pushRoute('/')
   }
