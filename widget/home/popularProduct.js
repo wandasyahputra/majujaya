@@ -12,14 +12,16 @@ import heartOutline from '@iconify/icons-ion/heart-outline'
 
 const propTypes = {
   callProduct: PropTypes.func,
+  toggleLove: PropTypes.func,
   loading: PropTypes.bool,
   loaded: PropTypes.bool,
   error: PropTypes.bool,
-  productReducer: PropTypes.object
+  productReducer: PropTypes.array
 }
 
 const defaultProps = {
   callProduct: () => null,
+  toggleLove: () => null,
   loading: false,
   loaded: false,
   error: false,

@@ -1,7 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Row } from 'react-bootstrap'
-import { Link } from '../routes'
+import { Router } from '../routes'
 import { Icon } from '@iconify/react'
 import heartIcon from '@iconify/icons-ion/heart'
 import homeIcon from '@iconify/icons-ion/home';
@@ -18,22 +16,21 @@ const defaultProps = {
   id: ''
 }
 
-const Navigator = (props) => {
+const Navigator = () => {
   return (
     <div className="navigator">
-      <div>
+      <a onClick={(e) => e.preventDefault()}>
         <Icon icon={homeIcon} width="32"/>
-      </div>
-      <div>
+      </a>
+      <a onClick={() => Router.push('feed')}>
         <Icon icon={heartIcon} width="32"/>
-      </div>
-      <div>
+      </a>
+      <a onClick={(e) => e.preventDefault()}>
         <Icon icon={cartIcon} width="32"/>
-      </div>
-      <div>
+      </a>
+      <a onClick={() => Router.push('purchasehistory')}>
         <Icon icon={personIcon} width="32"/>
-      </div>
-
+      </a>
     </div>
   )
 }

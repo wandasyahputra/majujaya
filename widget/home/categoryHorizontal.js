@@ -12,7 +12,7 @@ const propTypes = {
   loading: PropTypes.bool,
   loaded: PropTypes.bool,
   error: PropTypes.bool,
-  categoryReducer: PropTypes.object
+  categoryReducer: PropTypes.array
 }
 
 const defaultProps = {
