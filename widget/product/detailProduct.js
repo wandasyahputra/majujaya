@@ -13,7 +13,7 @@ import shareSocial from '@iconify/icons-ion/share-social'
 import cartIcon from '@iconify/icons-ion/cart'
 import PropTypes from 'prop-types'
 import Button from '../../atomic/button'
-import {CopyToClipboard} from 'react-copy-to-clipboard'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const propTypes = {
   callProduct: PropTypes.func,
@@ -48,7 +48,7 @@ const ProductDetail = (props) => {
       if (navigator.share) {
         navigator.share({
           title: 'MajuJaya Online Store',
-          url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+          url: url
         }).then(() => {
           console.log('Thanks for sharing!')
         })
