@@ -19,7 +19,7 @@ const defaultProps = {
   setLogin: () => null
 }
 
-const LoginEmail = (props) => {
+const LoginOther = (props) => {
   const responseFacebook = (response) => {
     const data = {
       name: response.name,
@@ -67,12 +67,12 @@ const LoginEmail = (props) => {
   )
 }
 
-LoginEmail.propTypes = propTypes
+LoginOther.propTypes = propTypes
 
-LoginEmail.defaultProps = defaultProps
+LoginOther.defaultProps = defaultProps
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(ActionsCreator, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(LoginEmail)
+export default connect(null, mapDispatchToProps)(LoginOther)
