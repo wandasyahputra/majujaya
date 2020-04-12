@@ -17,7 +17,7 @@ const defaultProps = {
 
 const Layout = (props) => {
   useEffect(() => {
-    if (props.pageTitle !== 'Login' && (!props.logedin || !localStorage.getItem('logedin'))) {
+    if (props.pageTitle !== 'Login' && (!props.logedin && !localStorage.getItem('logedin'))) {
       Router.push('/login')
     }
   }, [props.pageTitle])
