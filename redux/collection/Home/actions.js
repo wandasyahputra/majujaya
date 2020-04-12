@@ -17,10 +17,18 @@ export const callHome = () => {
   return dispatch => {
     return new Promise((resolve, reject) => {
       axios.get(home)
-        .then(({ data }) => {
-          dispatch(setHome({ data: data }))
+        .then(({ response }) => {
+          const data = {
+            category: null,
+            product: null
+          }
+          if (response[0] !== null) {
+            data.category = response[0].data.category
+            data.product = response[0].data.productPromo
+          }
+          dispatch(setHome({ data }))
           dispatch(setHome(successState))
-          resolve(data)
+          resolve(response)
         })
         .catch((error) => {
           dispatch(setHome(errorState))
