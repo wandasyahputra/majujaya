@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { Icon } from '@iconify/react'
 import { connect } from 'react-redux'
@@ -13,6 +13,7 @@ import shareSocial from '@iconify/icons-ion/share-social'
 import cartIcon from '@iconify/icons-ion/cart'
 import PropTypes from 'prop-types'
 import Button from '../../atomic/button'
+import {CopyToClipboard} from 'react-copy-to-clipboard'
 
 const propTypes = {
   callProduct: PropTypes.func,
@@ -21,7 +22,7 @@ const propTypes = {
   loading: PropTypes.bool,
   loaded: PropTypes.bool,
   error: PropTypes.bool,
-  productReducer: PropTypes.object
+  productReducer: PropTypes.array
 }
 
 const defaultProps = {
@@ -37,10 +38,27 @@ const defaultProps = {
 const ProductDetail = (props) => {
   const router = useRouter()
   const [productItem, setProductItem] = useState({})
+  const [url, setUrl] = useState('')
+  const shareSocialRef = useRef(null)
   useEffect(() => {
     if (!props.loading && !props.loaded && !props.error) {
       props.callProduct()
     }
+    shareSocialRef.current.addEventListener('click', event => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'MajuJaya Online Store',
+          url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+        }).then(() => {
+          console.log('Thanks for sharing!')
+        })
+          .catch(console.error)
+      } else {
+        setUrl(window.location.href)
+        console.log('share only available on mobile or safari browser for desktop')
+        alert('Link copied to clipboard')
+      }
+    })
   }, [])
   useEffect(() => {
     if (props.loaded) {
@@ -72,11 +90,14 @@ const ProductDetail = (props) => {
           </a>
         </Col>
         <Col xs={1}>
-          <a href="#" className="color-primary" onClick={(e) => {
-            e.preventDefault()
-          }}>
-            <Icon icon={shareSocial} width="24"/>
-          </a>
+          <CopyToClipboard
+            text={url}>
+            <a href="#" className="color-primary" ref={shareSocialRef} onClick={(e) => {
+              e.preventDefault()
+            }}>
+              <Icon icon={shareSocial} width="24"/>
+            </a>
+          </CopyToClipboard>
         </Col>
       </Row>
       {productItem ? (
