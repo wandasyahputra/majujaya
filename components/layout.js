@@ -1,21 +1,26 @@
-import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { Router } from '../routes'
 import Head from 'next/head'
 import PropType from 'prop-types'
 
 const propTypes = {
+  logedin: PropType.bool,
   pageTitle: PropType.string,
-  navigation: PropType.bool,
-  activeKey: PropType.string,
   children: PropType.any
 }
 
 const defaultProps = {
-  pageTitle: '',
-  navigation: true
+  pageTitle: ''
 }
 
 const Layout = (props) => {
+  useEffect(() => {
+    if (props.pageTitle !== 'Login' && !props.logedin) {
+      Router.push('/login')
+    }
+  }, [props.pageTitle])
   return (
     <React.Fragment>
       <Head>
@@ -33,5 +38,8 @@ const Layout = (props) => {
 Layout.propTypes = propTypes
 
 Layout.defaultProps = defaultProps
+const mapStateToProps = state => ({
+  logedin: state.userDataReducer.data.logedin
+})
 
-export default Layout
+export default connect(mapStateToProps)(Layout)
