@@ -5,6 +5,8 @@
 @import 'card';
 @import 'radiocheck';
 @import 'textField';
+@import 'categoryItem';
+@import 'productBigItem';
 
 html,
 body *{
@@ -27,6 +29,19 @@ body *{
 }
 ::-webkit-scrollbar-track {
   background: rgba(214, 214, 214, 0.00);
+}
+
+.scrollContainer {
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  & > * {
+    display: inline-block;
+  }
+}
+
+.withShadow {
+  box-shadow: $boxShadow;
 }
 
 .shimmer {

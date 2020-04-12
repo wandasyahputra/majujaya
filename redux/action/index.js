@@ -1,7 +1,7 @@
 import * as UserAction from '../collection/User/actions'
-import * as HomeAction from '../collection/Home/actions'
+import * as ProductAction from '../collection/Product/actions'
 
 export const ActionsCreator = Object.assign(
   UserAction,
-  HomeAction
+  ProductAction
 )
