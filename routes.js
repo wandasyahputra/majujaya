@@ -6,3 +6,4 @@ routes
   .add('login', '/login', '/login')
   .add('search', '/search', '/search')
   .add('product', '/product/:id', '/product')
+  .add('purchase', '/purchase', '/purchase')

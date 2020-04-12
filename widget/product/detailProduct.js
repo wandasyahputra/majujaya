@@ -9,7 +9,7 @@ import { ActionsCreator } from '../../redux/action/index'
 import heartIcon from '@iconify/icons-ion/heart'
 import heartOutline from '@iconify/icons-ion/heart-outline'
 import arrowBackSharp from '@iconify/icons-ion/arrow-back-sharp'
-import shareSocial from '@iconify/icons-ion/share-social';
+import shareSocial from '@iconify/icons-ion/share-social'
 import cartIcon from '@iconify/icons-ion/cart'
 import PropTypes from 'prop-types'
 import Button from '../../atomic/button'
