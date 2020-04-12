@@ -6,12 +6,16 @@ import PropTypes from 'prop-types'
 
 const propTypes = {
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  onClick: PropTypes.func,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool
 }
 
 const defaultProps = {
   onChange: () => null,
-  placeholder: ''
+  onClick: () => null,
+  placeholder: '',
+  disabled: false
 }
 
 const InputSearch = (props) => {
@@ -22,11 +26,11 @@ const InputSearch = (props) => {
   }
   return (
     <div className="form-group w-100 my-3">
-      <div className="input-group input-group-search">
+      <div className="input-group input-group-search" onClick={props.onClick}>
         <div className="input-group-prepend">
           <Icon icon={searchOutline} width="15" className="color-primary"/>
         </div>
-        <input type="text" className="form-control" value={value} placeholder={props.placeholder} onChange={(e) => handleChange(e.target.value)}/>
+        <input type="text" className="form-control" disabled={props.disabled} value={value} placeholder={props.placeholder} onChange={(e) => handleChange(e.target.value)}/>
         {
           value ? (
             <div className="input-group-append" onClick={(e) => {

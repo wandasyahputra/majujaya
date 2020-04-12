@@ -1,5 +1,6 @@
 import {
-  SET_PRODUCT
+  SET_PRODUCT,
+  TOGGLE_LOVE
 } from '../../types'
 import axios from 'axios'
 import { home } from '../../../endpoint/majujaya'
@@ -18,7 +19,15 @@ export const callProduct = () => {
     return new Promise((resolve, reject) => {
       axios.get(home)
         .then(({ data }) => {
-          dispatch(setProduct({ data: data }))
+          const dataContainer = {
+            category: null,
+            product: null
+          }
+          if (data[0] !== null) {
+            dataContainer.category = data[0].data.category
+            dataContainer.product = data[0].data.productPromo
+          }
+          dispatch(setProduct({ data: dataContainer }))
           dispatch(setProduct(successState))
           resolve(data)
         })
@@ -29,3 +38,8 @@ export const callProduct = () => {
     })
   }
 }
+
+export const toggleLove = id => ({
+  type: TOGGLE_LOVE,
+  payload: id
+})

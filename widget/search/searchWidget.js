@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionsCreator } from '../../redux/action/index'
@@ -12,11 +12,17 @@ import PropTypes from 'prop-types'
 
 const propTypes = {
   callProduct: PropTypes.func,
+  loading: PropTypes.bool,
+  loaded: PropTypes.bool,
+  error: PropTypes.bool,
   productReducer: PropTypes.object
 }
 
 const defaultProps = {
   callProduct: () => null,
+  loading: false,
+  loaded: false,
+  error: false,
   productReducer: {}
 }
 
@@ -27,7 +33,11 @@ const SearchWidget = (props) => {
   const handleChangeInput = (val) => {
     setSearchValue(val)
   }
-
+  useEffect(() => {
+    if (!props.loading && !props.loaded && !props.error) {
+      props.callProduct()
+    }
+  }, [])
   return (
     <React.Fragment>
       <Row className="align-items-center">
@@ -48,13 +58,7 @@ const SearchWidget = (props) => {
       </Row>
       <Container>
         {searchValue === '' ? 'Type something you want to search' : null }
-        {/* {searchValue !== '' &&
-          props.productReducer.loaded &&
-          props.productReducer.data !== null &&
-          props.productReducer.data[0] !== null &&
-          props.productReducer.data[0].data.productPromo &&
-          props.productReducer.data[0].data.productPromo !== null && ?} */}
-        {searchValue !== '' ? props.productReducer.data.map((item, key) => {
+        {searchValue !== '' && props.productReducer !== null ? props.productReducer.map((item, key) => {
           if (item.title.toLowerCase().includes(searchValue.toLowerCase())) {
             return (
               <ItemProductSmall
@@ -79,7 +83,10 @@ SearchWidget.propTypes = propTypes
 SearchWidget.defaultProps = defaultProps
 
 const mapStateToProps = state => ({
-  productReducer: state.ProductReducer
+  productReducer: state.ProductReducer.data.product,
+  loading: state.ProductReducer.loading,
+  loaded: state.ProductReducer.loaded,
+  error: state.ProductReducer.error
 })
 
 const mapDispatchToProps = dispatch => {
