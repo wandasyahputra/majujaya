@@ -27,7 +27,6 @@ const setDataPurchase = (state = initialState, { type, payload }) => {
         }
         newProduct.push(itemProduct)
       }
-      console.log(newProduct)
       return {
         ...state,
         data: newProduct
