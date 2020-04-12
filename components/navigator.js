@@ -2,9 +2,9 @@ import React from 'react'
 import { Router } from '../routes'
 import { Icon } from '@iconify/react'
 import heartIcon from '@iconify/icons-ion/heart'
-import homeIcon from '@iconify/icons-ion/home';
-import cartIcon from '@iconify/icons-ion/cart';
-import personIcon from '@iconify/icons-ion/person';
+import homeIcon from '@iconify/icons-ion/home'
+import cartIcon from '@iconify/icons-ion/cart'
+import personIcon from '@iconify/icons-ion/person'
 
 const propTypes = {
 }

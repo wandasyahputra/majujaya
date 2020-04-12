@@ -50,7 +50,7 @@ const PopularProduct = (props) => {
                 ) : (<Icon icon={heartOutline} width="32" onClick={toggleLove(item.id)} className="love text-primary"/>)
                 }
                 <Link route={`/product/${item.id}`}>
-                  <h4 className="f-14 m-2 mt-4">{item.title}</h4>
+                  <h4 className="f-14 m-2 mt-4 font-weight-bold color-primary">{item.title}</h4>
                 </Link>
               </Card>
             )) : null
