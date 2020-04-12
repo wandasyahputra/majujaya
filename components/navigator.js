@@ -22,13 +22,13 @@ const Navigator = () => {
       <a onClick={(e) => e.preventDefault()}>
         <Icon icon={homeIcon} width="32"/>
       </a>
-      <a onClick={() => Router.push('feed')}>
+      <a onClick={() => Router.push('/feed')}>
         <Icon icon={heartIcon} width="32"/>
       </a>
       <a onClick={(e) => e.preventDefault()}>
         <Icon icon={cartIcon} width="32"/>
       </a>
-      <a onClick={() => Router.push('purchasehistory')}>
+      <a onClick={() => Router.push('/purchase')}>
         <Icon icon={personIcon} width="32"/>
       </a>
     </div>

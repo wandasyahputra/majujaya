@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/layout'
 import DetailProduct from '../../widget/product/detailProduct'
 
-const HomePage = () => (
+const Product = () => (
   <Layout
     pageTitle="Product"
   >
@@ -10,4 +10,4 @@ const HomePage = () => (
   </Layout>
 )
 
-export default HomePage
+export default Product
