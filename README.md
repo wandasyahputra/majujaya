@@ -6,6 +6,8 @@ Demo of this project can be found on [https://majujaya.herokuapp.com/](https://m
 
 ## Getting Started
 
+This app tested on node.js v13.12.0 npm v6.14.4
+
 First, install the dependencies:
 
 ```bash
