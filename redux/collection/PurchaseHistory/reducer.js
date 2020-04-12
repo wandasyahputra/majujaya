@@ -21,12 +21,13 @@ const setDataPurchase = (state = initialState, { type, payload }) => {
     case TOGGLE_LOVE: {
       const newProduct = []
       for (let i = 0; i < state.data.length; i++) {
-        const itemProduct = state.data[i]
+        const itemProduct = { ...state.data[i] }
         if (itemProduct.id === payload) {
           itemProduct.loved = !itemProduct.loved
         }
         newProduct.push(itemProduct)
       }
+      console.log(newProduct)
       return {
         ...state,
         data: newProduct
