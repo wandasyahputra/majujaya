@@ -1,0 +1,10 @@
+.categoryItem {
+  text-align: center;
+  padding: 10px;
+  & img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+}

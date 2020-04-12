@@ -1,0 +1,12 @@
+.navigator {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px 20px;
+  color: $primaryColor;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: $boxShadow;
+  background-color: $white;
+}

@@ -1,0 +1,85 @@
+@import 'variables';
+@import '../fonts/museo-sans/museosans';
+@import 'typography';
+@import 'button';
+@import 'card';
+@import 'radiocheck';
+@import 'textField';
+@import 'categoryItem';
+@import 'productBigItem';
+@import 'navigator';
+
+html,
+body *{
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(136, 136, 136, 0.05) rgba(214, 214, 214, 0);
+  font-family: 'museo_sans300', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+  opacity: 0;
+}
+::-webkit-scrollbar:active {
+  opacity: 1;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.05);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(214, 214, 214, 0.00);
+}
+
+.scrollContainer {
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  & > * {
+    display: inline-block;
+  }
+}
+
+.withShadow {
+  box-shadow: $boxShadow;
+}
+
+.shimmer {
+  background: $shimmerLight;
+  background-image: linear-gradient(to right, $shimmerLight 0%, $shimmerDark 20%, $shimmerLight 40%, $shimmerLight 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px; 
+  display: inline-block;
+  position: relative; 
+  
+  animation-duration: 1s;
+  animation-fill-mode: forwards; 
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: linear;
+
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+}
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  
+  100% {
+    background-position: 468px 0; 
+  }
+}
+@-webkit-keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  
+  100% {
+    background-position: 468px 0; 
+  }
+}

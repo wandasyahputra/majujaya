@@ -1,0 +1,5 @@
+export const SET_LOGIN = 'SET_LOGIN'
+export const SET_PRODUCT = 'SET_PRODUCT'
+export const SET_HOME = 'SET_HOME'
+export const TOGGLE_LOVE = 'TOGGLE_LOVE'
+export const SET_PURCHASE = 'SET_PURCHASE'
